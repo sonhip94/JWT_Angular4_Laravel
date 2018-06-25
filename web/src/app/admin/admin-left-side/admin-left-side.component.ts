@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from './../../auth/services/auth.service';
+import { User } from './../../auth/models/user.model';
+
+@Component({
+	selector: 'app-admin-left-side',
+	templateUrl: './admin-left-side.component.html',
+	styleUrls: ['./admin-left-side.component.css']
+})
+export class AdminLeftSideComponent implements OnInit {
+
+	user : User;
+
+	constructor(
+		private authService : AuthService
+		) { }
+
+	ngOnInit() {
+		this.user = this.authService.getUser();
+	}
+
+}
